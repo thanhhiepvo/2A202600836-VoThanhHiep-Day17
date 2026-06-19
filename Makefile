@@ -26,6 +26,9 @@ flywheel: ## [lite] Agent traces -> Bronze -> eval/DPO datasets + point-in-time 
 kg: ## [lite] Bonus: build a knowledge graph from the docs and query it
 	@$(PY) kg_demo.py
 
+bonus: ## [bonus] Fuzzy decontamination demo (paraphrase leakage)
+	@$(PY) bonus/fuzzy_demo.py
+
 test: ## [lite] Run pytest (16 tests)
 	@DISABLE_PANDERA_IMPORT_WARNING=True $(PY) -m pytest -q
 
@@ -39,4 +42,4 @@ clean: ## Wipe venv, warehouse, derived datasets, quarantine
 	rm -rf $(VENV) warehouse.duckdb quarantine.csv datasets \
 	       **/__pycache__ .pytest_cache
 
-.PHONY: help setup verify run flywheel kg test dbt docker-up clean
+.PHONY: help setup verify run flywheel kg bonus test dbt docker-up clean

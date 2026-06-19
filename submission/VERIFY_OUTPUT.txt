@@ -1,0 +1,23 @@
+=== verify.py: Day 17 lab smoke test ===
+  [OK ] extract loaded raw rows
+  [OK ] Silver dropped duplicates (the hook)
+  [OK ] gate quarantined bad records
+  [OK ] Gold produced daily rows
+  [OK ] no duplicate order_id remains in Silver
+  [OK ] streaming consumer is idempotent
+  [OK ] doc->chunk->embedding ingestion
+  [OK ] agent traces flattened into Bronze spans
+  [OK ] eval golden set curated from traces
+  [OK ] decontamination drops eval-overlapping pairs
+  [OK ] at least one clean preference pair survives
+  [OK ] ASOF point-in-time join avoids future leakage
+  [OK ] knowledge graph built from docs
+  [OK ] graph query answers 'what is returnable?' = widget only
+  [OK ] graph answers a real 2-hop question (widget->accessory->warehouse)
+  [OK ] vector foil: no single chunk answers the multi-hop question
+
+RESULT: 16/16 checks — ALL PASS
+
+pytest -q: 18 passed in 0.36s
+
+dbt build: PASS=11 WARN=0 ERROR=0
